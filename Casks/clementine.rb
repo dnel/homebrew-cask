@@ -13,6 +13,10 @@ cask 'clementine' do
 
   app 'clementine.app'
 
+  preflight do
+    set_permissions "#{staged_path}/clementine.app", '0755'
+  end
+  
   zap trash: [
                '~/Library/Application Support/Clementine',
                '~/Library/Caches/org.clementine-player.Clementine',
